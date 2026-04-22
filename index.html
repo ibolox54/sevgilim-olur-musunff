@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sevgilim Olur Musun? 💖</title>
+<style>
+    body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3, #fad0c4);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow: hidden;
+    }
+
+    .box {
+        background: rgba(255,255,255,0.95);
+        padding: 30px;
+        border-radius: 25px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        text-align: center;
+        animation: pop 0.6s ease;
+        max-width: 90%;
+    }
+
+    @keyframes pop {
+        from { transform: scale(0.5); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #ff4d6d;
+    }
+
+    p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        margin: 8px;
+    }
+
+    #yes {
+        background: linear-gradient(45deg, #00c853, #69f0ae);
+        color: white;
+    }
+
+    #no {
+        background: linear-gradient(45deg, #ff1744, #ff8a80);
+        color: white;
+        position: absolute;
+    }
+
+    .heart {
+        position: fixed;
+        font-size: 24px;
+        animation: fall 3s linear forwards;
+    }
+
+    @keyframes fall {
+        from { transform: translateY(-10vh); opacity: 1; }
+        to { transform: translateY(110vh); opacity: 0; }
+    }
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h1>💖 Sevgilim olur musun? 💖</h1>
+    <p>Hayatımı güzelleştirecek kişi olur musun? 🥺✨</p>
+    <button id="yes">Evet 😍</button>
+    <button id="no">Hayır 😅</button>
+</div>
+
+<script>
+    const noBtn = document.getElementById("no");
+
+    function kacir() {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 50);
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    }
+
+    // PC için
+    noBtn.addEventListener("mouseover", kacir);
+
+    // TELEFON için (asıl çözüm bu)
+    noBtn.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        kacir();
+    });
+
+    document.getElementById("yes").addEventListener("click", () => {
+        alert("Yuppii 😍❤️ Artık sevgiliyiz!");
+        createHearts();
+    });
+
+    function createHearts() {
+        for (let i = 0; i < 30; i++) {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerText = "💖";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+            heart.style.animationDuration = (Math.random() * 2 + 2) + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,2 +1,111 @@
-[InternetShortcut]
-URL=https://ibolox54.github.io/sevgilim-olur-musunff/
+https://eshayyo.github.io/eshay/
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sevgilim Olur Musun?</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+}
+
+.container {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  max-width: 90%;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.yes {
+  background: #ff4d6d;
+  color: white;
+}
+
+.no {
+  background: #ccc;
+}
+
+.yes:hover {
+  transform: scale(1.1);
+}
+
+.no:hover {
+  position: absolute;
+  top: calc(10% + (80% * Math.random()));
+  left: calc(10% + (80% * Math.random()));
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #ff4d6d;
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>💖 Benimle sevgili olur musun? 💖</h1>
+
+  <div class="buttons">
+    <button class="yes" onclick="yesClick()">Evet 😍</button>
+    <button class="no" id="noBtn">Hayır 😢</button>
+  </div>
+
+  <div id="result">💘 YAŞASINNN 💘</div>
+</div>
+
+<script>
+function yesClick() {
+  document.getElementById("result").style.display = "block";
+}
+
+// kaçan hayır butonu
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random() * (window.innerWidth - noBtn.clientWidth);
+  const y = Math.random() * (window.innerHeight - noBtn.clientHeight);
+
+  noBtn.style.position = "absolute";
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+</script>
+
+</body>
+</html>
